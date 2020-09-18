@@ -1,0 +1,31 @@
+
+<ion-content [fullscreen]="true" >
+  <div #map id="map" ></div> 
+  <div id="local">
+    <h2 style="text-align: center;">
+      People in your Area
+    </h2>
+    <ion-item>
+      <h4>Zoom Level</h4>
+      <ion-input [(ngModel)]="zoom"></ion-input>
+      <ion-range min="5" max="20" step="2" [(ngModel)]="zoom" (ionChange)="loadMap(this.zoom)">
+        <ion-icon size="small" slot="start" name="sunny"></ion-icon>
+        <ion-icon slot="end" name="sunny"></ion-icon>
+      </ion-range>
+      
+    </ion-item>  
+        <ion-list *ngFor="let user of users">
+          <!--Not sure about this coding practice-->
+          <ion-item *ngIf="user.location < zoom && user.isUser == false">
+            <ion-avatar slot="start">
+              <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+            </ion-avatar>
+            <ion-label>{{user.username}}</ion-label>
+            <ion-label>{{user.age}}</ion-label>
+            <ion-label>{{user.gender}}</ion-label>
+          </ion-item>
+        </ion-list>
+          
+  </div>
+  
+</ion-content>

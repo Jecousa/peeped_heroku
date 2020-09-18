@@ -1,0 +1,79 @@
+<ion-card>
+  <ion-card-header>
+    <!--Todo delete debug btn-->
+    <button ion-button (click)="dismiss()">debug</button>
+    <ion-card-title>Peeped</ion-card-title>
+    <ion-card-subtitle>Login or Sign Up Below</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+    <div padding>
+      <ion-segment [(ngModel)]="welcome" color="secondary">
+        <ion-segment-button value="su">
+          Signup
+        </ion-segment-button>
+        <ion-segment-button value="si">
+          Login
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+  
+    <div [ngSwitch]="welcome">
+      <ion-list *ngSwitchCase="'su'">
+      <!--  <form #f='ngForm' (ngSubmit)="onSignin(f)"> -->
+          <ion-list>
+            <ion-item>
+              <ion-input placeholder="Username"
+              ngModel
+              name="username"
+              required></ion-input>
+            </ion-item>
+          <ion-item>
+            <ion-input placeholder="Email"
+            type="email"
+            ngModel
+            name="email"
+            required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="Password" 
+            placeholder="Password"
+            ngModel
+            name="password"
+            required></ion-input>
+          </ion-item>
+          <button ion-button (click)="dismiss()">Signup</button>
+        </ion-list>
+       <!-- </form> -->
+      </ion-list>
+      <ion-list *ngSwitchCase="'si'">
+      <!--  <form #f='ngForm' (ngSubmit)="onSignin(f)"> -->
+          <ion-list>
+          <ion-item>
+            <ion-input placeholder="Email"
+            type="email"
+            ngModel
+            name="email"
+            required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="Password" 
+            placeholder="Password"
+            ngModel
+            name="password"
+            required></ion-input>
+          </ion-item>
+          <!--Todo update dismiss method-->
+          <button ion-button (click)="dismiss()">Login</button>
+        </ion-list>
+        <!-- </form> -->
+      </ion-list>
+      <ion-list *ngSwitchDefault>
+        <ion-item>
+          <p>Something about Peeped, pictures, etc</p>
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-card-content>
+</ion-card>
+
