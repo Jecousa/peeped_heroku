@@ -16,8 +16,8 @@ app.use(function(req, res, next) {
   next();
 });
  
-
-app.use(express.static('www'));
+app.use(express.static(’./dist/peeped’));
+//app.use(express.static('www'));
 // app.set('port', process.env.PORT || 5000);
 app.set('port', process.env.PORT || 8080);
 app.listen(app.get('port'), function () {
